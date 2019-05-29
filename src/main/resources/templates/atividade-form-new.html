@@ -5,9 +5,9 @@
     <title>Atividade: Nova</title>
 </head>
 <body>
-    <form action="criar.html" method="post">
-        <label>Título: <input type="text" name="titulo"></label>
-        <label>Tomatoes: <input type="number" name="tomatoes"></label>
+    <form th:action="@{criar.html}" method="post" th:object="${atividade}">
+        <label>Título: <input type="text" th:field="*{titulo}"></label>
+        <label>Tomatoes: <input type="number" th:field="*{titulo}"></label>
         <input type="submit" />
         <input type="reset" />
     </form>

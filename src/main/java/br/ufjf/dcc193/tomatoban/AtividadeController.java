@@ -25,9 +25,12 @@ public class AtividadeController {
     }
 
     @RequestMapping("/nova.html")
-    public String nova(){
-
-            return "atividade-form-new.html";
+    public ModelAndView nova(){
+            Atividade atividade = new Atividade();
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("atividade-form-new");
+            mv.addObject("atividade", atividade);
+            return mv;
     }
 
     @PostMapping(value="/criar.html")
