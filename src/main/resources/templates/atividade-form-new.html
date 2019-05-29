@@ -7,7 +7,9 @@
 <body>
     <form th:action="@{criar.html}" method="post" th:object="${atividade}">
         <label>Título: <input type="text" th:field="*{titulo}"></label>
-        <label>Tomatoes: <input type="number" th:field="*{titulo}"></label>
+        <strong th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}"></strong>
+        <label>Tomatoes: <input type="number" th:field="*{tomatoes}"></label>
+        <strong th:if="${#fields.hasErrors('tomatoes')}" th:errors="*{tomatoes}"></strong>
         <input type="submit" />
         <input type="reset" />
     </form>
