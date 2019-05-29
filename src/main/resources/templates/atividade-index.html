@@ -8,10 +8,10 @@
     <p>Bem vindo <span th:text="${nome}">Seu Nome Aqui</span>!</p>
     <h1>Atividade: index</h1>
     <ul>
-        <li><a href="@{./criar.html}">Criar</a></li>
-        <li><a href="@{./listar.html}">Listar</a></li>
-        <li><a href="@{./excluir.html}">Excluir</a></li>
-        <li><a href="@{./editar.html}">Editar</a></li>
+        <li><a th:href="@{./nova.html}">Criar</a></li>
+        <li><a th:href="@{./listar.html}">Listar</a></li>
+        <li><a th:href="@{./excluir.html}">Excluir</a></li>
+        <li><a th:href="@{./editar.html}">Editar</a></li>
     </ul>
 </body>
 </html>
