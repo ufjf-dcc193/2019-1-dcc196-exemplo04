@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -17,9 +19,15 @@ public class Atividade {
     @PositiveOrZero
     private Integer tomatoes;
 
-    public Atividade(){
+    @Min(1)
+    @Max(5)
+    private Integer dificuldade;
 
+
+    public Atividade(){
+        this.dificuldade = 3;
     }
+    
 
     public Atividade(String titulo){
         setTitulo(titulo);
@@ -52,6 +60,14 @@ public class Atividade {
     @Override
     public String toString() {
         return "Atividade [id=" + id + ", titulo=" + titulo + ", tomatoes=" + tomatoes + "]";
+    }
+
+    public Integer getDificuldade() {
+        return dificuldade;
+    }
+
+    public void setDificuldade(Integer dificuldade) {
+        this.dificuldade = dificuldade;
     }
     
     

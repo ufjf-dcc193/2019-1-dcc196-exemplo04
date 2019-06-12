@@ -5,6 +5,16 @@
     <title>Atividade: Listar</title>
 </head>
 <body>
+    <form>
+        <label>Dificuldade mínima: <select name="min">
+                <option th:each="opcao: ${opcoes}" th:object="${opcao}" th:value="*{key}" th:text="*{key+': '+value}" th:selected="${min==opcao.key}"></option>
+            </select></label>
+
+        <label>Dificuldade máxima: <select name="max">
+                <option th:each="opcao: ${opcoes}" th:object="${opcao}" th:value="*{key}" th:text="*{key+': '+value}" th:selected="${max==opcao.key}"></option>
+            </select></label>
+            <input type="submit" />
+    </form>
     <h1>Atividades</h1>
     <table>
         <thead>
