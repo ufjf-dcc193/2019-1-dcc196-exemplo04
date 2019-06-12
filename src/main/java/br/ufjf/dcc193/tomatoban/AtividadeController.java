@@ -85,4 +85,14 @@ public class AtividadeController {
         return mv;
     }
 
+    @GetMapping(value = "/listar-grandes.html")
+    public ModelAndView listarGrandes() {
+        List<Atividade> atividades = atvRepo.listaGrandes();
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("atividade-list.html");
+        mv.addObject("atividades", atividades);
+        return mv;
+    }
+
 }
