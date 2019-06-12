@@ -30,6 +30,8 @@ public class AtividadeController {
 
     @Autowired
     AtividadeRepository atvRepo;
+    @Autowired
+    TomatoRepository tomRepo;
 
     @RequestMapping({ "", "/", "/index.html" })
     public ModelAndView atividadeIndex() {
@@ -57,7 +59,11 @@ public class AtividadeController {
             mv.addObject("atividade", atividade);
             return mv;
         }
+        Tomato t = new Tomato();
+        t.setAtividade(atividade);
+        atividade.tomatoList.add(t);
         atvRepo.save(atividade);
+        tomRepo.save(t);
         mv.setViewName("redirect:listar.html");
         return mv;
     }

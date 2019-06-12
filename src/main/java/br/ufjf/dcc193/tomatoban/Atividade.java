@@ -1,9 +1,13 @@
 package br.ufjf.dcc193.tomatoban;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -23,13 +27,17 @@ public class Atividade {
     @Max(5)
     private Integer dificuldade;
 
+    @OneToMany(mappedBy = "atividade")
+    List<Tomato> tomatoList;
 
     public Atividade(){
         this.dificuldade = 3;
+        this.tomatoList = new ArrayList<>();
     }
     
 
     public Atividade(String titulo){
+        this();
         setTitulo(titulo);
     }
 
@@ -68,6 +76,14 @@ public class Atividade {
 
     public void setDificuldade(Integer dificuldade) {
         this.dificuldade = dificuldade;
+    }
+
+    public List<Tomato> getTomatoList() {
+        return tomatoList;
+    }
+
+    public void setTomatoList(List<Tomato> tomatoList) {
+        this.tomatoList = tomatoList;
     }
     
     
